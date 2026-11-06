@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f4f5f6">
+    <meta name="description" content="Área do Ema, Ema, Ema em desenvolvimento.">
+    <title>{{ feature.title }} | Em desenvolvimento — Ema, Ema, Ema</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/development.css') }}">
+  </head>
+  <body>
+    <div class="development-shell">
+      <header class="development-header">
+        <a class="brand" href="{{ url_for('dashboard') }}" aria-label="Ema, Ema, Ema, ir para o dashboard"><span class="brand__mark" aria-hidden="true"><svg viewBox="0 0 32 32" role="img"><path d="M5 5h8v8H5zM19 5h8v8h-8zM5 19h8v8H5zM19 19h8v8h-8z" fill="currentColor"/><path d="M13 13h6v6h-6z" fill="var(--lime)"/></svg></span><span class="brand__name">Ema, Ema, Ema</span></a>
+        <a class="development-back" href="{{ url_for('dashboard') }}">Voltar ao dashboard <span>↗</span></a>
+      </header>
+      <main class="development-main">
+        <div class="development-orb development-orb--one"></div><div class="development-orb development-orb--two"></div>
+        <section class="development-card" aria-labelledby="development-title">
+          <div class="development-card__icon" aria-hidden="true">{{ feature.symbol }}</div>
+          <p class="eyebrow"><span class="eyebrow__dot"></span> {{ feature.eyebrow }}</p>
+          <h1 id="development-title">{{ feature.title }}<br><em>está tomando forma.</em></h1>
+          <p class="development-card__description">{{ feature.description }}</p>
+          <div class="development-progress" aria-label="Status: em desenvolvimento"><div class="development-progress__top"><span>STATUS DO PRODUTO</span><strong>Em desenvolvimento</strong></div><div class="development-progress__track"><span></span></div><small>Próxima etapa: {{ feature.step }}</small></div>
+          <div class="development-actions"><a class="primary-button" href="{{ url_for('dashboard') }}">Voltar ao dashboard <span>→</span></a><a class="text-button" href="{{ url_for('landing') }}#lista">Acompanhar novidades <span>↗</span></a></div>
+        </section>
+        <p class="development-footer-note">cada um com seu problema... Não, estamos com você.</p>
+      </main>
+    </div>
+  </body>
+</html>

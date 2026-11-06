@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f4f5f6">
+    <meta name="description" content="Relatório detalhado de gastos do Ema, Ema, Ema">
+    <title>Relatórios | Ema, Ema, Ema</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/reports.css') }}">
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" id="sidebar" aria-label="Navegação principal">
+        <div class="sidebar__top">
+          <a class="brand" href="{{ url_for('dashboard') }}" aria-label="Ema, Ema, Ema, ir para o dashboard">
+            <span class="brand__mark" aria-hidden="true"><svg viewBox="0 0 32 32" role="img"><path d="M5 5h8v8H5zM19 5h8v8h-8zM5 19h8v8H5zM19 19h8v8h-8z" fill="currentColor"/><path d="M13 13h6v6h-6z" fill="var(--lime)"/></svg></span>
+            <span class="brand__name">Ema, Ema, Ema</span>
+          </a>
+          <button class="sidebar__close icon-button" type="button" id="close-sidebar" aria-label="Fechar menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg></button>
+        </div>
+        <nav class="nav-section" aria-label="Menu financeiro">
+          <p class="nav-section__label">Workspace</p>
+          <a class="nav-link" href="{{ url_for('dashboard') }}"><span class="nav-link__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></span>Dashboard</a>
+          <a class="nav-link" href="{{ url_for('shortcuts') }}"><span class="nav-link__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/><circle cx="12" cy="12" r="8.5"/></svg></span>Atalhos</a>
+          <a class="nav-link" href="{{ url_for('dashboard') }}#transactions"><span class="nav-link__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"/><circle cx="18" cy="17" r="2.5"/></svg></span>Transações<span class="nav-link__badge">12</span></a>
+          <a class="nav-link" href="{{ url_for('dashboard') }}#cashflow"><span class="nav-link__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 18V9m5 9V5m6 13v-7m5 7V3"/></svg></span>Fluxo de caixa</a>
+          <a class="nav-link nav-link--soon" href="{{ url_for('development', feature='goals') }}" aria-label="Metas — em desenvolvimento"><span class="nav-link__icon nav-link__icon--target"><svg viewBox="0 0 24 24" aria-hidden="true" stroke="currentColor"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1.2"/></svg></span>Metas<span class="nav-link__status">Em breve</span></a>
+          <a class="nav-link nav-link--active" href="{{ url_for('reports') }}" aria-current="page"><span class="nav-link__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 20V10m7 10V4m7 16v-7"/><path d="M3 20h18"/></svg></span>Relatórios</a>
+        </nav>
+        <nav class="nav-section nav-section--secondary" aria-label="Configurações">
+          <p class="nav-section__label">Gerenciar</p>
+          <a class="nav-link nav-link--soon" href="{{ url_for('development', feature='accounts') }}" aria-label="Contas e cartões — em desenvolvimento"><span class="nav-link__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18M7 15h3"/></svg></span>Contas e cartões<span class="nav-link__status">Em breve</span></a>
+          <a class="nav-link nav-link--soon" href="{{ url_for('development', feature='settings') }}" aria-label="Configurações — em desenvolvimento"><span class="nav-link__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v3m0 12v3M3 12h3m12 0h3M5.6 5.6l2.1 2.1m8.6 8.6 2.1 2.1m0-12.8-2.1 2.1m-8.6 8.6-2.1 2.1"/><circle cx="12" cy="12" r="3.5"/></svg></span>Configurações<span class="nav-link__status">Em breve</span></a>
+        </nav>
+        <div class="sidebar__bottom">
+          <div class="upgrade-card"><span class="upgrade-card__spark">✦</span><p class="upgrade-card__eyebrow">Ema, Ema, Ema Pro</p><p class="upgrade-card__title">Mais clareza para suas decisões.</p><button class="upgrade-card__link" type="button" data-toast="O plano Pro estará disponível em breve.">Conheça o Pro <span>→</span></button></div>
+          <div class="profile-mini"><div class="avatar avatar--small">MS</div><div class="profile-mini__text"><strong>{{ user.name|default('Marina Silva') }}</strong><span>Conta pessoal</span></div><button class="icon-button profile-mini__more" type="button" aria-label="Abrir opções da conta"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="5" cy="12" r="1.4"/><circle cx="12" cy="12" r="1.4"/><circle cx="19" cy="12" r="1.4"/></svg></button></div>
+        </div>
+      </aside>
+      <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+      <main class="main-content">
+        <header class="topbar">
+          <button class="menu-toggle icon-button" type="button" id="open-sidebar" aria-label="Abrir menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+          <div class="topbar__breadcrumb"><span>Workspace</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg><strong>Relatórios</strong></div>
+          <div class="topbar__actions"><button class="icon-button topbar__notification" type="button" aria-label="Notificações"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 9a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"/></svg><span></span></button><div class="topbar__divider"></div><div class="topbar__date"><span class="topbar__date-label">Hoje</span><strong>{{ current_date|default('10 nov. 2026') }}</strong></div><div class="avatar avatar--top">MS</div></div>
+        </header>
+
+        <div class="content-wrap reports-content">
+          <section class="report-hero" aria-labelledby="report-title">
+            <div><p class="eyebrow">Relatório operacional <span class="eyebrow__dot"></span> Outubro — Novembro 2026</p><h1 id="report-title">Seus gastos, em perspectiva.</h1><p class="page-heading__subtitle">Acompanhe compromissos, identifique padrões e aja antes do próximo vencimento.</p></div>
+            <div class="report-toolbar"><label class="period-control"><span>Período analisado</span><select id="period-filter" aria-label="Selecionar período"><option value="current">01 out — 10 nov. 2026</option><option value="last-month">01 — 30 set. 2026</option><option value="quarter">01 ago — 10 nov. 2026</option></select></label><button class="primary-button" id="export-report" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m-4-4 4 4 4-4M5 20h14"/></svg>Exportar</button></div>
+          </section>
+
+          <section class="alert-strip" aria-label="Alertas financeiros">
+            <article class="report-alert report-alert--attention"><span class="report-alert__icon">!</span><div><p>Próximos vencimentos</p><strong>2 serviços vencem nos próximos 10 dias.</strong></div><button type="button" class="report-alert__action" data-scroll-services>Ver serviços <span>→</span></button></article>
+            <article class="report-alert report-alert--positive"><span class="report-alert__icon">✓</span><div><p>Bom ritmo</p><strong>Você está 3,2% abaixo dos gastos anteriores.</strong></div><span class="report-alert__metric">− 3,2%</span></article>
+            <article class="report-alert report-alert--neutral"><span class="report-alert__icon">↗</span><div><p>Oportunidade</p><strong>4 cobranças recorrentes somam R$ 320.</strong></div><button type="button" class="report-alert__action" data-toast="A análise de cobranças recorrentes será detalhada em breve.">Analisar <span>→</span></button></article>
+          </section>
+
+          <section class="report-metric-strip" aria-label="Resumo financeiro do relatório">
+            <article class="report-metric report-metric--dark report-mini-chart-card">
+              <div class="report-mini-chart-card__header"><span class="report-metric__label">Despesas por semana</span><span class="report-mini-chart-card__period">últimos 30 dias</span></div>
+              <div class="report-mini-chart-card__summary"><strong>{{ report.total }}</strong><span>↓ {{ report.change }} vs. anterior</span></div>
+              <div class="mini-expense-chart" role="img" aria-label="Gráfico compacto das despesas nas últimas seis semanas">
+                <div class="mini-expense-chart__bars"><span class="mini-expense-chart__bar mini-expense-chart__bar--1"></span><span class="mini-expense-chart__bar mini-expense-chart__bar--2"></span><span class="mini-expense-chart__bar mini-expense-chart__bar--3"></span><span class="mini-expense-chart__bar mini-expense-chart__bar--4"></span><span class="mini-expense-chart__bar mini-expense-chart__bar--5"></span><span class="mini-expense-chart__bar mini-expense-chart__bar--current"></span></div>
+                <div class="mini-expense-chart__labels"><span>S1</span><span>S2</span><span>S3</span><span>S4</span><span>S5</span><span>Agora</span></div>
+              </div>
+            </article>
+            <article class="report-metric"><span class="report-metric__label">Serviços pagos</span><strong>{{ report.services_paid_total }}</strong><span class="report-metric__detail">3 compromissos concluídos</span></article>
+            <article class="report-metric"><span class="report-metric__label">A pagar</span><strong>{{ report.services_pending_total }}</strong><span class="report-metric__detail report-metric__detail--warning">3 próximos vencimentos</span></article>
+            <article class="report-metric report-metric--soft"><span class="report-metric__label">Média diária</span><strong>{{ report.daily_average }}</strong><span class="report-metric__detail">limite diário saudável</span></article>
+          </section>
+
+          <section class="report-layout report-layout--overview">
+            <article class="panel report-chart-panel">
+              <div class="panel__header"><div><p class="panel__eyebrow">Leitura mensal</p><h2>Evolução dos gastos</h2></div><div class="report-chart-switcher" role="group" aria-label="Período do gráfico"><button class="report-chart-tab is-active" type="button" data-chart-mode="monthly">Mensal</button><button class="report-chart-tab" type="button" data-chart-mode="weekly">Semanal</button></div></div>
+              <div class="report-chart-meta"><div><span class="summary-dot summary-dot--expense"></span><span id="chart-period-label">Total gasto por mês</span><strong id="chart-total-label">{{ report.total }}</strong></div><span class="chart-meta-note">Linha preenchida</span></div>
+              <div class="filled-line-chart" id="report-line-chart" data-mode="monthly" role="img" aria-label="Gráfico de linha preenchida da evolução dos gastos"><div class="filled-line-chart__axis"><span>R$ 2,5k</span><span>R$ 1,5k</span><span>R$ 500</span><span>R$ 0</span></div><svg class="filled-line-chart__svg" viewBox="0 0 680 220" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="filled-expense-gradient" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#b8fa52" stop-opacity=".42"/><stop offset="100%" stop-color="#b8fa52" stop-opacity=".03"/></linearGradient></defs><path class="filled-line-chart__area" d="M0 162 C70 150 84 170 136 135 S220 145 270 110 S350 128 408 92 S505 106 560 76 S635 90 680 52 L680 220 L0 220 Z"/><path class="filled-line-chart__line" d="M0 162 C70 150 84 170 136 135 S220 145 270 110 S350 128 408 92 S505 106 560 76 S635 90 680 52"/><g class="filled-line-chart__points"><circle class="filled-line-chart__point" cx="0" cy="162" r="4"/><circle class="filled-line-chart__point" cx="136" cy="135" r="4"/><circle class="filled-line-chart__point" cx="270" cy="110" r="4"/><circle class="filled-line-chart__point" cx="408" cy="92" r="4"/><circle class="filled-line-chart__point" cx="560" cy="76" r="4"/><circle class="filled-line-chart__point filled-line-chart__point--current" cx="680" cy="52" r="5"/></g></svg><div class="filled-line-chart__labels"><span>Mai</span><span>Jun</span><span>Jul</span><span>Ago</span><span>Set</span><span>Out</span></div></div>
+              <div class="chart-legend"><span><i class="legend-dot legend-dot--active"></i> Mês atual</span><span><i class="legend-dot legend-dot--muted"></i> Evolução das despesas</span></div>
+            </article>
+            <article class="panel report-category-panel">
+              <div class="panel__header"><div><p class="panel__eyebrow">Composição</p><h2>Onde concentrar atenção</h2></div><span class="panel__spark">✦</span></div>
+              <div class="category-bars">{% for category in report.categories %}<div class="category-bar-row"><div class="category-bar-label"><span class="legend-color legend-color--{{ category.tone }}"></span><strong>{{ category.name }}</strong><span>{{ category.amount }}</span></div><div class="category-bar-track"><span class="category-bar-fill category-bar-fill--{{ category.tone }}" data-width="{{ category.percent }}"></span></div><div class="category-bar-foot"><small>{{ category.description }}</small><b>{{ category.percent }}%</b></div></div>{% endfor %}</div>
+              <div class="category-panel-note"><span>Casa + alimentação representam 60% dos gastos.</span><button class="text-button" type="button" data-toast="Você pode criar um limite específico para cada categoria.">Criar limite <span>→</span></button></div>
+            </article>
+          </section>
+
+          <section class="panel services-panel" id="services">
+            <div class="services-panel__header"><div><p class="panel__eyebrow">Controle de compromissos</p><h2>Serviços pagos e a pagar</h2><p class="services-panel__subtitle">Uma visão prática das cobranças que já foram concluídas e das próximas saídas.</p></div><button class="text-button" type="button" data-toast="A conexão com contas será disponibilizada em breve.">Sincronizar contas <span>↗</span></button></div>
+            <div class="services-toolbar"><div class="service-filter-groups"><div><span class="service-filter-caption">Status</span><div class="service-filters" role="group" aria-label="Filtrar serviços por status"><button class="service-filter is-active" type="button" data-service-filter="all">Todos <span>6</span></button><button class="service-filter" type="button" data-service-filter="paid">Pagos <span>3</span></button><button class="service-filter" type="button" data-service-filter="pending">A pagar <span>3</span></button></div></div><label class="service-category-select"><span>Categoria</span><select id="service-category-filter" aria-label="Filtrar serviços por categoria"><option value="all">Todas</option><option value="Casa">Casa</option><option value="Alimentação">Alimentação</option><option value="Assinaturas">Assinaturas</option><option value="Serviços">Serviços</option><option value="Lazer">Lazer</option></select></label></div><label class="service-search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4 4"/></svg><input id="service-search" type="search" placeholder="Buscar serviço" aria-label="Buscar serviço"></label></div>
+            <div class="services-table" role="table" aria-label="Serviços pagos e a pagar"><div class="services-table__head" role="row"><span>Serviço</span><span>Vencimento</span><span>Categoria</span><span>Status</span><span>Valor</span><span></span></div><div id="service-empty" class="service-empty" hidden>Nenhum serviço corresponde a este filtro.</div>{% for service in report.services %}<div class="service-row" role="row" data-service-status="{{ service.status }}" data-service-category="{{ service.category }}" data-service-name="{{ service.name|lower }}"><div class="service-name"><span class="service-icon service-icon--{{ service.tone }}">{% if service.tone == 'home' %}<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m4 11 8-7 8 7v9H4zM9 20v-5h6v5"/></svg>{% elif service.tone == 'food' %}<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3v8m4-8v8M4 8h8M6 11v10m12-18v18m0-18c-3 2-3 7 0 9"/></svg>{% elif service.tone == 'subscription' %}<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="14" rx="2"/><path d="M8 9h8M8 13h5"/></svg>{% elif service.tone == 'service' %}<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 18h14M6 15l3-5 3 3 4-6 2 3"/></svg>{% elif service.tone == 'leisure' %}<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M8.5 15.5 15.5 8.5M9 9h.01M15 15h.01"/></svg>{% endif %}</span><span><strong>{{ service.name }}</strong><small>{{ service.vendor }}</small></span></div><span class="service-due">{{ service.due }}</span><span class="service-category">{{ service.category }}</span><span class="service-status service-status--{{ service.status }}">{{ service.status_label }}</span><strong class="service-amount">{{ service.amount }}</strong><button class="icon-button service-more" type="button" data-toast="Detalhes de {{ service.name }}." aria-label="Ver detalhes de {{ service.name }}"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="5" cy="12" r="1.4"/><circle cx="12" cy="12" r="1.4"/><circle cx="19" cy="12" r="1.4"/></svg></button></div>{% endfor %}</div>
+          </section>
+
+          <section class="report-lower-grid">
+            <article class="panel report-insights-panel"><div class="panel__header"><div><p class="panel__eyebrow">Leitura rápida</p><h2>O que merece atenção</h2></div><span class="panel__spark">✦</span></div><div class="insight-list"><div class="compact-insight compact-insight--positive"><span>✓</span><div><strong>Casa está sob controle</strong><small>Você reduziu esta categoria em 4,8%.</small></div></div><div class="compact-insight compact-insight--warning"><span>!</span><div><strong>Alimentação acelerou</strong><small>Restaurantes somam R$ 684 no período.</small></div></div><div class="compact-insight compact-insight--neutral"><span>↗</span><div><strong>Revise assinaturas</strong><small>4 cobranças recorrentes somam R$ 320.</small></div></div></div></article>
+            <article class="panel recurring-panel"><div class="panel__header"><div><p class="panel__eyebrow">Próximo ciclo</p><h2>Despesas recorrentes</h2></div><span class="recurring-total">R$ 1.420</span></div><div class="recurring-list"><div><span class="recurring-dot recurring-dot--dark"></span><span>Moradia e serviços</span><strong>R$ 1.085</strong></div><div><span class="recurring-dot recurring-dot--lime"></span><span>Assinaturas</span><strong>R$ 320</strong></div><div><span class="recurring-dot recurring-dot--muted"></span><span>Outros fixos</span><strong>R$ 15</strong></div></div><button class="text-button" type="button" data-toast="A gestão de recorrências será disponibilizada em breve.">Gerenciar recorrências <span>→</span></button></article>
+          </section>
+          <footer class="page-footer"><span>Ema, Ema, Ema <span class="page-footer__dot">·</span> cada um com seu problema... Não, estamos com você.</span><span>Dados atualizados há 3 min.</span></footer>
+        </div>
+      </main>
+    </div>
+    <div class="toast" id="toast" role="status" aria-live="polite"><span class="toast__check">✓</span><span id="toast-message">Ação concluída.</span></div>
+    <script src="{{ url_for('static', filename='js/reports.js') }}" defer></script>
+  </body>
+</html>

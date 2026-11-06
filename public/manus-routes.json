@@ -1,0 +1,8 @@
+{
+  "routes": [
+    { "path": "/", "title": "Ema, Ema, Ema — cada um com seu problema... Não, estamos com você." },
+    { "path": "/dashboard", "title": "Dashboard | Ema, Ema, Ema" },
+    { "path": "/shortcuts", "title": "Atalhos | Ema, Ema, Ema" },
+    { "path": "/reports", "title": "Relatórios | Ema, Ema, Ema" }
+  ]
+}

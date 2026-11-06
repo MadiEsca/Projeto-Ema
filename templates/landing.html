@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f4f5f6">
+    <meta name="description" content="Ema, Ema, Ema: cada um com seu problema... Não, estamos com você.">
+    <title>Ema, Ema, Ema — cada um com seu problema... Não, estamos com você.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/landing.css') }}">
+  </head>
+  <body>
+    <div class="landing-orb landing-orb--one"></div>
+    <div class="landing-orb landing-orb--two"></div>
+    <header class="landing-header" id="landing-header">
+      <a class="landing-brand" href="{{ url_for('landing') }}" aria-label="Ema, Ema, Ema, página inicial"><span class="landing-brand__mark" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M5 5h8v8H5zM19 5h8v8h-8zM5 19h8v8H5zM19 19h8v8h-8z" fill="currentColor"/><path d="M13 13h6v6h-6z" fill="var(--lime)"/></svg></span><span>Ema, Ema, Ema</span></a>
+      <nav class="landing-nav" aria-label="Navegação da landing page"><a href="#como-funciona">Como funciona</a><a href="#recursos">Recursos</a><a href="#lista">Lista de acesso</a></nav>
+      <a class="landing-header__login" href="{{ url_for('dashboard') }}">Acessar dashboard <span>↗</span></a>
+    </header>
+
+    <main>
+      <section class="landing-hero" aria-labelledby="landing-title">
+        <div class="hero-copy">
+          <p class="landing-eyebrow"><span class="landing-eyebrow__dot"></span> Gestão financeira, mais humana</p>
+          <h1 id="landing-title">Ema, Ema, Ema.<br><em>Estamos com você.</em></h1>
+          <p class="hero-copy__text">Cada um tem seu problema. O Ema transforma entradas, gastos e compromissos em uma visão simples para você decidir melhor todos os dias.</p>
+          <div class="hero-actions"><a class="landing-button landing-button--dark" href="{{ url_for('dashboard') }}">Conhecer meu dashboard <span>→</span></a><a class="hero-text-link" href="#lista">Quero acompanhar o lançamento <span>↓</span></a></div>
+          <div class="hero-proof"><div class="proof-avatars"><span>MS</span><span>AR</span><span>LC</span><b>+</b></div><p><strong>1.200+ pessoas</strong><br>já estão acompanhando o Ema, Ema, Ema</p></div>
+        </div>
+        <div class="hero-visual" aria-label="Prévia visual do dashboard Ema, Ema, Ema">
+          <div class="visual-glow"></div>
+          <div class="dashboard-preview">
+            <div class="preview-top"><span class="preview-brand"><i></i> Ema, Ema, Ema</span><span class="preview-date">Hoje, 10 nov. 2026 <b>MS</b></span></div>
+            <div class="preview-heading"><div><small>VISÃO GERAL FINANCEIRA</small><h2>Olá, Marina.</h2><p>Aqui está o resumo do seu dinheiro.</p></div><span class="preview-add">+ Nova movimentação</span></div>
+            <div class="preview-metrics"><div class="preview-metric preview-metric--dark"><small>Saldo disponível</small><strong>R$ 24.680<em>,40</em></strong><span>↗ 8,4% vs. mês anterior</span></div><div class="preview-metric"><small>Receitas</small><strong>R$ 12.450<em>,00</em></strong><span>↗ 12,6%</span></div><div class="preview-metric"><small>Despesas</small><strong>R$ 5.286<em>,32</em></strong><span class="preview-red">↘ 3,2%</span></div></div>
+            <div class="preview-grid"><div class="preview-panel preview-chart"><div class="preview-panel__title"><span>FLUXO DE CAIXA<strong>Movimentação mensal</strong></span><b>Mensal⌄</b></div><svg viewBox="0 0 420 130" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="preview-fill" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#b8fa52" stop-opacity=".34"/><stop offset="1" stop-color="#b8fa52" stop-opacity="0"/></linearGradient></defs><path class="preview-area" d="M0 102 C45 90 60 97 98 72 S153 79 198 56 S260 75 300 42 S352 62 420 20 L420 130 L0 130Z"/><path class="preview-line" d="M0 102 C45 90 60 97 98 72 S153 79 198 56 S260 75 300 42 S352 62 420 20"/><circle cx="300" cy="42" r="4"/><circle cx="420" cy="20" r="4"/></svg><div class="preview-axis"><span>Mai</span><span>Jun</span><span>Jul</span><span>Ago</span><span>Set</span><span>Out</span></div></div><div class="preview-panel preview-spend"><div class="preview-panel__title"><span>GASTOS POR CATEGORIA<strong>Onde concentrar atenção</strong></span><i>✦</i></div><div class="spend-row"><span><i class="dot dot--lime"></i>Casa</span><b>36%</b><em><u style="width: 78%"></u></em></div><div class="spend-row"><span><i class="dot dot--orange"></i>Alimentação</span><b>24%</b><em><u style="width: 57%"></u></em></div><div class="spend-row"><span><i class="dot dot--gray"></i>Transporte</span><b>18%</b><em><u style="width: 43%"></u></em></div><div class="spend-row"><span><i class="dot dot--purple"></i>Lazer</span><b>12%</b><em><u style="width: 30%"></u></em></div></div></div>
+          </div>
+          <div class="floating-note floating-note--insight"><span>✦</span><div><small>INSIGHT FINANCEIRO</small><strong>Você economizou<br>R$ 420 este mês.</strong></div></div>
+          <div class="floating-note floating-note--secure"><span>✓</span><div><strong>Dados protegidos</strong><small>Privacidade em primeiro lugar</small></div></div>
+        </div>
+      </section>
+
+      <section class="trust-strip" aria-label="Diferenciais do produto"><div><strong>Uma visão</strong><span>para tudo que entra e sai</span></div><i></i><div><strong>Alertas simples</strong><span>antes do próximo vencimento</span></div><i></i><div><strong>Clareza diária</strong><span>sem planilha e sem susto</span></div></section>
+
+      <section class="process-section reveal-on-scroll" id="como-funciona" aria-labelledby="process-title">
+        <div class="section-heading"><p class="landing-eyebrow"><span class="landing-eyebrow__dot"></span> Como o Ema ajuda</p><h2 id="process-title">Você traz o problema.<br><em>O Ema organiza o próximo passo.</em></h2><p>Sem complicar. Você escolhe o que quer entender e recebe uma leitura que faz sentido para a sua rotina.</p></div>
+        <div class="process-layout">
+          <div class="process-steps" role="tablist" aria-label="Etapas de funcionamento">
+            <button class="process-step is-active" type="button" data-process="overview" role="tab" aria-selected="true"><span>01</span><strong>Veja o todo</strong><small>Saldo, receitas e despesas em um único lugar.</small></button>
+            <button class="process-step" type="button" data-process="organize" role="tab" aria-selected="false"><span>02</span><strong>Organize sem esforço</strong><small>Adicione movimentos ou traga seu extrato.</small></button>
+            <button class="process-step" type="button" data-process="anticipate" role="tab" aria-selected="false"><span>03</span><strong>Antecipe o próximo passo</strong><small>Alertas aparecem antes que o problema cresça.</small></button>
+          </div>
+          <div class="process-demo" aria-live="polite">
+            <div class="process-demo__top"><span>EMA EM AÇÃO</span><b><i></i> Atualizado agora</b></div>
+            <div class="process-panel is-active" data-process-panel="overview"><div class="process-panel__question">Como está minha vida financeira?</div><div class="process-panel__answer"><span>✦</span><div><small>LEITURA DO EMA</small><strong>Você está dentro do seu ritmo.</strong><p>Receitas cobrem os compromissos previstos e a sua taxa de economia subiu 8,4% este mês.</p></div></div><div class="process-mini-stats"><div><small>Saldo disponível</small><strong>R$ 24.680,40</strong></div><div><small>Taxa de economia</small><strong>57%</strong></div></div></div>
+            <div class="process-panel" data-process-panel="organize"><div class="process-panel__question">Importei meu extrato de outubro.</div><div class="process-panel__answer"><span>↗</span><div><small>EMA ORGANIZANDO</small><strong>42 lançamentos encontrados.</strong><p>As transações foram agrupadas por categoria e estão prontas para sua revisão.</p></div></div><div class="process-import-list"><span>Alimentação <b>12</b></span><span>Casa <b>8</b></span><span>Transporte <b>7</b></span><span>Outros <b>15</b></span></div></div>
+            <div class="process-panel" data-process-panel="anticipate"><div class="process-panel__question">O que merece minha atenção?</div><div class="process-panel__answer"><span>!</span><div><small>ALERTA DO EMA</small><strong>2 compromissos vencem em 10 dias.</strong><p>Netflix e energia elétrica estão previstos para a próxima semana.</p></div></div><div class="process-alert-list"><span><i class="process-alert-dot process-alert-dot--orange"></i>Energia elétrica <b>R$ 174,80</b></span><span><i class="process-alert-dot process-alert-dot--purple"></i>Netflix Premium <b>R$ 55,90</b></span></div></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="feature-section reveal-on-scroll" id="recursos" aria-labelledby="feature-title">
+        <div class="feature-section__intro"><p class="landing-eyebrow"><span class="landing-eyebrow__dot"></span> Tudo em perspectiva</p><h2 id="feature-title">O que entra e sai<br><em>começa a fazer sentido.</em></h2><p>O Ema reúne os detalhes sem transformar sua vida financeira em uma planilha interminável.</p></div>
+        <div class="feature-board"><div class="feature-board__top"><div><span>ÚLTIMAS MOVIMENTAÇÕES</span><strong>Uma visão que acompanha você</strong></div><button type="button" class="feature-board__filter">Este mês⌄</button></div><div class="feature-board__grid"><div class="feature-transactions"><article><span class="feature-icon feature-icon--food">⌁</span><div><strong>Supermercado</strong><small>Alimentação · Hoje, 09:42</small></div><b>− R$ 184,60</b></article><article><span class="feature-icon feature-icon--income">↗</span><div><strong>Salário mensal</strong><small>Receita · Hoje, 08:00</small></div><b class="feature-positive">+ R$ 8.400,00</b></article><article><span class="feature-icon feature-icon--home">⌂</span><div><strong>Aluguel do apartamento</strong><small>Casa · 05 nov. 2026</small></div><b>− R$ 1.850,00</b></article><article><span class="feature-icon feature-icon--subscription">◌</span><div><strong>Netflix Premium</strong><small>Assinaturas · 12 nov. 2026</small></div><b>− R$ 55,90</b></article></div><aside class="feature-insight"><div class="feature-insight__icon">✦</div><small>INSIGHT DO EMA</small><h3>Você gastou menos com alimentação.</h3><p>Este mês, suas compras estão 12% abaixo da média dos últimos três meses.</p><div class="feature-insight__bar"><span style="width: 68%"></span></div><div class="feature-insight__footer"><span>Anterior</span><strong>− 12%</strong></div></aside></div></div>
+      </section>
+
+      <section class="agent-section reveal-on-scroll" aria-labelledby="agent-title"><div class="agent-section__heading"><div><p class="landing-eyebrow"><span class="landing-eyebrow__dot"></span> Cada problema tem um jeito</p><h2 id="agent-title">Ema fica de olho<br><em>nos detalhes por você.</em></h2></div><p>Não é sobre fazer tudo sozinho. É sobre ter uma leitura mais clara quando você precisar.</p></div><div class="agent-grid"><article class="agent-card"><span class="agent-card__number">01</span><span class="agent-card__icon">⌁</span><h3>Radar</h3><p>Encontra cobranças repetidas e movimentações fora do padrão.</p><a href="#lista">Quero entender <span>→</span></a></article><article class="agent-card agent-card--lime"><span class="agent-card__number">02</span><span class="agent-card__icon">✦</span><h3>Organiza</h3><p>Aprende suas categorias e deixa cada lançamento no lugar certo.</p><a href="#lista">Quero organizar <span>→</span></a></article><article class="agent-card"><span class="agent-card__number">03</span><span class="agent-card__icon">!</span><h3>Alerta</h3><p>Avisa quando um vencimento ou limite merece sua atenção.</p><a href="#lista">Quero antecipar <span>→</span></a></article><article class="agent-card agent-card--dark"><span class="agent-card__number">04</span><span class="agent-card__icon">↗</span><h3>Resumo</h3><p>Traduz muitos números em uma decisão simples para hoje.</p><a href="#lista">Quero clareza <span>→</span></a></article></div></section>
+
+      <section class="security-section reveal-on-scroll" aria-label="Compromissos do produto"><div class="security-section__lead"><span class="security-section__mark">✓</span><div><p class="landing-eyebrow">Feito para acompanhar, não para complicar</p><h2>Clareza também é saber<br><em>com quem seus dados estão.</em></h2></div></div><div class="security-points"><div><strong>100%</strong><span>visão simples</span></div><i></i><div><strong>1 lugar</strong><span>para suas decisões</span></div><i></i><div><strong>Sem susto</strong><span>antes do fim do mês</span></div></div></section>
+
+      <section class="waitlist-section reveal-on-scroll" id="lista" aria-labelledby="waitlist-title"><div class="waitlist-copy"><p class="landing-eyebrow"><span class="landing-eyebrow__dot"></span> Acesso antecipado</p><h2 id="waitlist-title">Faça parte da<br><em>lista de clareza.</em></h2><p>Estamos construindo o Ema, Ema, Ema com calma e atenção. Deixe seus dados e receba novidades sobre o lançamento do produto.</p><div class="waitlist-detail"><span>✦</span><p><strong>Sem spam.</strong> Apenas atualizações importantes sobre o projeto e o seu acesso.</p></div></div><div class="waitlist-form-wrap"><form class="waitlist-form" id="waitlist-form" novalidate><div class="waitlist-form__heading"><span>01 / 04</span><strong>Conte um pouco sobre você.</strong></div><label class="waitlist-field"><span>Nome completo</span><input id="contact-name" name="name" type="text" placeholder="Como podemos te chamar?" autocomplete="name" required></label><label class="waitlist-field"><span>Seu melhor e-mail</span><input id="contact-email" name="email" type="email" placeholder="voce@email.com" autocomplete="email" required></label><div class="waitlist-form__row"><label class="waitlist-field"><span>CPF</span><input id="contact-cpf" name="cpf" type="text" inputmode="numeric" placeholder="000.000.000-00" maxlength="14" required></label><label class="waitlist-field"><span>Idade</span><input id="contact-age" name="age" type="number" min="18" max="120" placeholder="Ex.: 28" required></label></div><label class="waitlist-consent"><input id="contact-consent" type="checkbox" required><span></span><small>Concordo em receber atualizações sobre o Ema, Ema, Ema e aceito a política de privacidade.</small></label><button class="landing-button landing-button--dark waitlist-submit" type="submit">Quero acompanhar o Ema, Ema, Ema <span>→</span></button><p class="waitlist-feedback" id="waitlist-feedback" role="status" aria-live="polite"></p></form></div></section>
+    </main>
+    <footer class="landing-footer"><a class="landing-brand" href="{{ url_for('landing') }}"><span class="landing-brand__mark" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M5 5h8v8H5zM19 5h8v8h-8zM5 19h8v8H5zM19 19h8v8h-8z" fill="currentColor"/><path d="M13 13h6v6h-6z" fill="var(--lime)"/></svg></span><span>Ema, Ema, Ema</span></a><p>cada um com seu problema... Não, estamos com você.</p><a href="{{ url_for('dashboard') }}">Acessar dashboard <span>↗</span></a></footer>
+    <div class="landing-toast" id="landing-toast" role="status" aria-live="polite"><span>✓</span><p id="landing-toast-message">Tudo certo.</p></div>
+    <script src="{{ url_for('static', filename='js/landing.js') }}" defer></script>
+  </body>
+</html>
